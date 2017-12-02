@@ -1,0 +1,34 @@
+************************
+*** BACK PROPOGATION ***
+************************
+Current epoch is 1 (max: 20)
+Current cross error is 2.30273 (needed 0.007)
+Current epoch is 2 (max: 20)
+Current cross error is 0.188723 (needed 0.007)
+Current epoch is 3 (max: 20)
+Current cross error is 0.114472 (needed 0.007)
+Current epoch is 4 (max: 20)
+Current cross error is 0.0822552 (needed 0.007)
+Current epoch is 5 (max: 20)
+Current cross error is 0.0685714 (needed 0.007)
+Current epoch is 6 (max: 20)
+Current cross error is 0.0457285 (needed 0.007)
+Current epoch is 7 (max: 20)
+Current cross error is 0.0423907 (needed 0.007)
+Current epoch is 8 (max: 20)
+Current cross error is 0.0314804 (needed 0.007)
+Current epoch is 9 (max: 20)
+Current cross error is 0.0241304 (needed 0.007)
+Current epoch is 10 (max: 20)
+Current cross error is 0.0155986 (needed 0.007)
+Current epoch is 11 (max: 20)
+Current cross error is 0.0191337 (needed 0.007)
+Current epoch is 12 (max: 20)
+Current cross error is 0.0118584 (needed 0.007)
+Current epoch is 13 (max: 20)
+Current cross error is 0.0088894 (needed 0.007)
+Current epoch is 14 (max: 20)
+Current cross error is 0.00693879 (needed 0.007)
+Network is trained enough
+Training error = 0.000883333, testing error = 0.0182
+
