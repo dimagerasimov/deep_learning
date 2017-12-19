@@ -15,13 +15,13 @@ public:
     Network(const int numberInputNeurons,
             const int numberHiddenNeurons, const int numberOutputNeurons);
     void train(const VectorOfDoubleVectors trainSample, const int maxNumberEpochs,
-            const Double neededLearnRate, const Double neededCrossError);
+            const Double neededLearnRate, const Double neededCrossEntropyValue);
     Double getAnswer(const VectorOfDoubleVectors data);
 
 private:
     void initializeOtherFields();
     void randomizeWeights();
-    Double calcCrossError(VectorOfDoubleVectors data);
+    Double calcCrossEntropyValue(VectorOfDoubleVectors data);
     void backwardPass(DoubleVector ts, Double learnRate);
     void updateGradients(DoubleVector ts);
     void updateWeights(Double learnRate);

@@ -132,8 +132,8 @@ int main(int argc, char** argv) {
     VectorOfDoubleVectors testingData;
     prepareTestingData(testingData);
    
-    cout << "Training error = " << 1.0 - network.getAnswer(trainingData) <<
-            ", testing error = " << 1.0 - network.getAnswer(testingData) << endl;
+    cout << "Accuracy in the training sample = " << network.getAnswer(trainingData) <<
+            ", accuracy in the testing sample = " << network.getAnswer(testingData) << endl;
 
     return 0;
 }

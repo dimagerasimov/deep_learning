@@ -31,7 +31,7 @@ Network::Network(const int numberInputNeurons, const int numberHiddenNeurons, co
 }
 
 void Network::train(const VectorOfDoubleVectors trainSample, const int maxNumberEpochs,
-        const Double neededLearnRate, const Double neededCrossError) {
+        const Double neededLearnRate, const Double neededCrossEntropyValue) {
     DoubleVector xs(m_numberInputNeurons, 0.0); 
     DoubleVector ts(m_numberOutputNeurons, 0.0); 
 
@@ -44,10 +44,10 @@ void Network::train(const VectorOfDoubleVectors trainSample, const int maxNumber
         cout << "Current epoch is " << currentEpoch << 
                 " (max: " << maxNumberEpochs << ")" << endl;
         
-        Double currentCrossError = calcCrossError(trainSample);
-        cout << "Current cross error is " << currentCrossError <<
-                " (needed " << neededCrossError << ")" << endl;
-        if (currentCrossError < neededCrossError) {
+        Double currentCrossEntropyValue = calcCrossEntropyValue(trainSample);
+        cout << "Current cross entropy value is " << currentCrossEntropyValue <<
+                " (needed " << neededCrossEntropyValue << ")" << endl;
+        if (currentCrossEntropyValue < neededCrossEntropyValue) {
             cout << "Network is trained enough" << endl;
             return;
         }
@@ -124,7 +124,7 @@ void Network::randomizeWeights() {
     }
 }
 
-Double Network::calcCrossError(VectorOfDoubleVectors data)
+Double Network::calcCrossEntropyValue(VectorOfDoubleVectors data)
 {
     Double err = 0.0;
     DoubleVector xs(m_numberInputNeurons, 0.0); 
