@@ -28,8 +28,8 @@ def prepare_net2(num_hidden, num_outputs, model_ctx):
 
     net.collect_params().initialize(mx.init.Normal(sigma=.1), ctx=model_ctx)
 
-    loss_function = gluon.loss.SoftmaxCrossEntropyLoss()
-    print "Loss function: SoftmaxCrossEntropyLoss"
+    loss_function = gluon.loss.HingeLoss()
+    print "Loss function: HingeLoss"
     trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .05})
     print "Learning rate: 0.05\n"
     return net, loss_function, trainer
@@ -45,8 +45,8 @@ def prepare_net3(num_hidden, num_outputs, model_ctx):
 
     net.collect_params().initialize(mx.init.Normal(sigma=.1), ctx=model_ctx)
 
-    loss_function = gluon.loss.SoftmaxCrossEntropyLoss()
-    print "Loss function: SoftmaxCrossEntropyLoss"
+    loss_function = gluon.loss.SquaredHingeLoss()
+    print "Loss function: SquaredHingeLoss"
     trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .05})
     print "Learning rate: 0.05\n"
     return net, loss_function, trainer

@@ -56,7 +56,8 @@ epochs = 3
 smoothing_constant = .01
 
 for e in range(epochs):
-    for i, (data, label) in enumerate(train_data):
+    train_data_shuffle = gluon.data.DataLoader(train_data, batch_size = 1, shuffle=True)
+    for i, (data, label) in enumerate(train_data_shuffle):
         data = data.as_in_context(model_ctx)
         label = label.as_in_context(model_ctx)
         with autograd.record():
