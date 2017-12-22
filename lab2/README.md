@@ -16,7 +16,7 @@
 * lab2_net*.py – скрипты для описания полностью связанных нейронных сетей (все сети различные) в формате, доступном библиотеке MXNet.
 
 ## Используемые инструменты
-1. [Python](https://www.python.org/downloads/ "Download Python" версии 2.7.x;
+1. [Download Python](https://www.python.org/downloads/) версии 2.7.x;
 2. Библиотека MXNet: Установка производится командой `pip install mxnet`
 
 ## Полученные результаты
