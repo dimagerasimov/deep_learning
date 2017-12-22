@@ -13,8 +13,8 @@ def prepare_net1(num_hidden, num_outputs, model_ctx):
 
     loss_function = gluon.loss.LogisticLoss()
     print "Loss function: LogisticLoss"
-    trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .07})
-    print "Learning rate: 0.07\n"
+    trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .008})
+    print "Learning rate: 0.008\n"
     return net, loss_function, trainer
 
 def prepare_net2(num_hidden, num_outputs, model_ctx):
@@ -30,8 +30,8 @@ def prepare_net2(num_hidden, num_outputs, model_ctx):
 
     loss_function = gluon.loss.HingeLoss()
     print "Loss function: HingeLoss"
-    trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .05})
-    print "Learning rate: 0.05\n"
+    trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .008})
+    print "Learning rate: 0.008\n"
     return net, loss_function, trainer
 
 def prepare_net3(num_hidden, num_outputs, model_ctx):
@@ -47,7 +47,7 @@ def prepare_net3(num_hidden, num_outputs, model_ctx):
 
     loss_function = gluon.loss.SquaredHingeLoss()
     print "Loss function: SquaredHingeLoss"
-    trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .05})
-    print "Learning rate: 0.05\n"
+    trainer = gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': .008})
+    print "Learning rate: 0.008\n"
     return net, loss_function, trainer
 

@@ -52,7 +52,7 @@ sys.stdout.flush()
 
 start_time = time.time()
 
-epochs = 3
+epochs = 15
 smoothing_constant = .01
 
 for e in range(epochs):
