@@ -23,7 +23,7 @@ def load_data():
 						Xn[i * m + j, 0, :, dx + WINDOW_HALFSIZE, dy + WINDOW_HALFSIZE] = X[ii * m + jj, :]
 	
 	from sklearn.model_selection import train_test_split
-	X_train, X_test, Y_train, Y_test = train_test_split(Xn, Y, train_size = 0.66 / 3.0, test_size = 0.33 / 3.0, random_state=42)
+	X_train, X_test, Y_train, Y_test = train_test_split(Xn, Y, train_size = 0.66 / 2.0, test_size = 0.33 / 2.0, random_state=42)
 	print X_train.nbytes, ' ', X_test.nbytes
 	
 	train_data = mx.gluon.data.ArrayDataset(mx.nd.array(X_train), mx.nd.array(Y_train))

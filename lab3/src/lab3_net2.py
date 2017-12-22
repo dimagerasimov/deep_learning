@@ -21,9 +21,9 @@ model_ctx = mx.gpu(0)
 num_outputs = train_data[0][1].size
 num_hidden = train_data[0][1].size
 
-from net_preparator import prepare_net1
+from net_preparator import prepare_net2
 print "\nPreparing the network"
-net, loss_function, trainer = prepare_net1(num_hidden, num_outputs, model_ctx)
+net, loss_function, trainer = prepare_net2(num_hidden, num_outputs, model_ctx)
 
 def evaluate_accuracy(data_iterator, net):
     acc = 0
