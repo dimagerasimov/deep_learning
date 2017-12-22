@@ -9,7 +9,7 @@ import time
 start_time = time.time()
 
 from load_data import load_data
-train_data, test_data = load_data()
+all_data, train_data, test_data = load_data()
 
 elapsed_time = time.time() - start_time
 print 'Time load data: ', elapsed_time
@@ -82,3 +82,6 @@ for e in range(epochs):
 
 elapsed_time = time.time() - start_time
 print 'Time preparing net: ', elapsed_time
+
+from compute_output import compute_and_save_output
+compute_and_save_output(net, model_ctx, all_data, 3)
