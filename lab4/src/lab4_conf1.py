@@ -26,7 +26,7 @@ encoder, loss_encoder, decoder, loss_decoder = prepare_autoencoder1(num_hidden, 
 elapsed_time = time.time() - start_time
 print 'Time of initializing data: ', elapsed_time
 
-num_epochs = 1
+num_epochs = 15
 learning_rate = .008
 
 from pretrain import pretrain
