@@ -21,13 +21,13 @@ size_inputs = train_data[0][0].size
 num_outputs = train_data[0][1].size
 num_hidden = train_data[0][1].size
 
-from autoencoder_conf1 import prepare_autoencoder1
-encoder, loss_encoder, decoder, loss_decoder = prepare_autoencoder1(num_outputs, model_ctx)
+from autoencoder_conf import prepare_autoencoder4
+encoder, loss_encoder, decoder, loss_decoder = prepare_autoencoder4(num_hidden, num_outputs, model_ctx)
 elapsed_time = time.time() - start_time
 print 'Time of initializing data: ', elapsed_time
 
 num_epochs = 1
-learning_rate = .01
+learning_rate = .007
 
 from pretrain import pretrain
 start_time = time.time()
@@ -43,6 +43,6 @@ print 'Time of training net: ', elapsed_time
 
 from save_data import save_data
 start_time = time.time()
-save_data("./results/predictions/lab4_conf1_out.npy", all_data, train_data, encoder, model_ctx)
+save_data("./results/predictions/lab4_conf4_pred.npy", all_data, train_data, encoder, model_ctx)
 elapsed_time = time.time() - start_time
 print 'Time saving net: ', elapsed_time
