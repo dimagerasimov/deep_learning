@@ -1,0 +1,3 @@
+#!/bin/bash -i 
+sbatch ./job_slurm.sh
+# qsub job/job.sh
