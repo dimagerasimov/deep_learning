@@ -29,4 +29,4 @@ def load_data():
 	train_data = mx.gluon.data.ArrayDataset(mx.nd.array(X_train), mx.nd.array(Y_train))
 	test_data = mx.gluon.data.ArrayDataset(mx.nd.array(X_test), mx.nd.array(Y_test))
 
-	return X, train_data, test_data
+	return Xn, train_data, test_data

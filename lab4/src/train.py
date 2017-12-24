@@ -20,10 +20,9 @@ def evaluate_accuracy(data_iterator, net, start_time, model_ctx):
         sq = (output * label) > 0
         acc += sq.mean()
         cnt += 1
-        if i % 1000 == 0:
+        if i % 50000 == 0:
             print 'Metric. Data id = ', i, ' Time: ', time.time() - start_time
             sys.stdout.flush()
-        break
     return (acc.asscalar() / cnt)
 
 def train(train_data, test_data, encoder, loss_encoder, decoder, loss_decoder, model_ctx, num_epochs, learning_rate):
@@ -42,13 +41,11 @@ def train(train_data, test_data, encoder, loss_encoder, decoder, loss_decoder, m
             data = data.as_in_context(model_ctx)
             label = label.as_in_context(model_ctx)        
             with autograd.record():
-                print data.shape
                 output = encoder(data)
-                print output.shape
                 loss = loss_encoder(output, label)
             loss.backward()
             trainer.step(data.shape[0])
-            if i % 1000 == 0:
+            if i % 50000 == 0:
                 print 'Data id = ', i, ' Time: ', time.time() - start_time
                 sys.stdout.flush() 
             ##########################
@@ -57,11 +54,9 @@ def train(train_data, test_data, encoder, loss_encoder, decoder, loss_decoder, m
             curr_loss = mx.nd.mean(loss).asscalar()
             moving_loss = (curr_loss if ((i == 0) and (e == 0))
                            else (1 - smoothing_constant) * moving_loss + smoothing_constant * curr_loss)
-            break
 
         test_accuracy = evaluate_accuracy(test_data, encoder, start_time, model_ctx)
         train_accuracy = evaluate_accuracy(train_data, encoder, start_time, model_ctx)
         print("Epoch %s. Loss: %s, Train_acc %s, Test_acc %s" % (e, moving_loss, train_accuracy, test_accuracy))
 
-    return
-
+    return encoder, decoder

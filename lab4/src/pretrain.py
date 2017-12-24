@@ -22,15 +22,12 @@ def pretrain(train_data, encoder, loss_encoder, decoder, loss_decoder, model_ctx
             data = data.as_in_context(model_ctx)
             label = label.as_in_context(model_ctx)        
             with autograd.record():
-                print data.shape
                 hidden = encoder(data)
-                print hidden.shape
                 dinput = decoder(hidden)
-                print dinput.shape
                 loss = loss_decoder(dinput, data)
             loss.backward()
             trainer.step(data.shape[0])
-            if i % 1000 == 0:
+            if i % 50000 == 0:
                 print 'Data id = ', i, ' Time: ', time.time() - start_time
                 sys.stdout.flush() 
             ##########################
@@ -39,6 +36,5 @@ def pretrain(train_data, encoder, loss_encoder, decoder, loss_decoder, model_ctx
             curr_loss = mx.nd.mean(loss).asscalar()
             moving_loss = (curr_loss if ((i == 0) and (e == 0))
                            else (1 - smoothing_constant) * moving_loss + smoothing_constant * curr_loss)
-            break
 
-    return
+    return encoder, decoder
